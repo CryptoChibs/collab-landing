@@ -4,7 +4,7 @@ import React from 'react'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { Sparkles, Wallet, Shield, ChevronDown, Send } from 'lucide-react'
+import { Sparkles, Wallet, Shield, ChevronDown, Send, Users } from 'lucide-react'
 import Link from "next/link"
 import Image from "next/image"
 import { Space_Mono, IBM_Plex_Sans } from 'next/font/google'
@@ -217,10 +217,10 @@ export function LandingPage() {
       </header>
 
       <main className="flex-grow pt-[44px]">
-        <section className="relative overflow-hidden px-4 py-12 sm:py-16 lg:py-20 sm:px-6 lg:px-8">
+        <section className="relative overflow-hidden px-4 py-8 sm:py-12 lg:py-16 sm:px-6 lg:px-8">
           <div className="relative z-10 mx-auto max-w-7xl">
             <div className="text-center">
-              <h1 className={`mb-4 text-2xl font-bold tracking-tight text-[#F5F1E6] sm:text-4xl lg:text-5xl ${ibmPlexSans.className}`}>
+              <h1 className={`mb-2 text-base font-bold tracking-tight text-[#F5F1E6] sm:text-xl lg:text-2xl ${ibmPlexSans.className}`}>
                 Turning Tokens into Connections,
                 <br />
                 One Community at a Time
@@ -230,16 +230,32 @@ export function LandingPage() {
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button
-                  size="lg"
-                  className="bg-[#FFC700] text-[#1A1A40] hover:bg-[#5865F2] hover:text-white transition-colors duration-300 font-['Space_Mono'] rounded-full text-lg font-bold"
+                  size="default"
+                  className={`
+                    bg-[#FFC700] text-[#1A1A40] 
+                    hover:bg-[#5865F2] hover:text-white 
+                    transition-colors duration-300 
+                    rounded-full text-sm font-bold 
+                    px-4 py-2 h-9
+                    ${spaceMono.className}
+                  `}
                 >
-                  <DiscordLogo className="mr-2 h-5 w-5" /> Add to Discord
+                  <DiscordLogo className="mr-2 h-4 w-4" />
+                  Add to Discord
                 </Button>
                 <Button
-                  size="lg"
-                  className="bg-[#FFC700] text-[#1A1A40] hover:bg-[#0088cc] hover:text-white transition-colors duration-300 font-['Space_Mono'] rounded-full text-lg font-bold"
+                  size="default"
+                  className={`
+                    bg-[#FFC700] text-[#1A1A40] 
+                    hover:bg-[#0088cc] hover:text-white 
+                    transition-colors duration-300 
+                    rounded-full text-sm font-bold 
+                    px-4 py-2 h-9
+                    ${spaceMono.className}
+                  `}
                 >
-                  <Send className="mr-2 h-5 w-5" /> Add to Telegram
+                  <Send className="mr-2 h-4 w-4" />
+                  Add to Telegram
                 </Button>
               </div>
             </div>
@@ -247,27 +263,39 @@ export function LandingPage() {
         </section> 
 
         <section className="px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              <Card className="bg-[#F5F1E6]/5 p-6 backdrop-blur">
-                <Sparkles className="mb-4 h-12 w-12 text-[#FFC700]" />
-                <Link href="#pricing" className="mb-2 font-['Space_Mono'] text-xl font-bold text-white hover:text-[#FFC700] transition-colors">Pricing</Link>
-                <p className="text-[#8C92AC]">
-                  Choose from our flexible subscription plans to unlock premium features and enhance your community management experience.
+          <div className="mx-auto max-w-4xl">
+            <div className="grid gap-6 sm:grid-cols-2">
+              <Card className="bg-[#F5F1E6]/5 p-4">
+                <Users className="mb-3 h-8 w-8 text-[#FFC700]" />
+                <Link href="#community" className={`mb-1 text-lg font-bold text-white hover:text-[#FFC700] transition-colors ${ibmPlexSans.className}`}>
+                  Comprehensive Community Management
+                </Link>
+                <p className={`text-[#8C92AC] text-sm ${spaceMono.className}`}>
+                  Collab.Land offers a full-service tool that curates membership based on token ownership, ensuring that only verified token holders can access and participate in your community.
                 </p>
               </Card>
-              <Card className="bg-[#F5F1E6]/5 p-6 backdrop-blur">
-                <Wallet className="mb-4 h-12 w-12 text-[#FFC700]" />
-                <Link href="#docs" className="mb-2 font-['Space_Mono'] text-xl font-bold text-white hover:text-[#FFC700] transition-colors">Supported Chains and Wallets</Link>
-                <p className="text-[#8C92AC]">
-                  Access comprehensive guides and tutorials to set up, manage, and optimize your Collab.Land integration. Our documentation covers everything from basic setup to advanced features.
+
+              <Card className="bg-[#F5F1E6]/5 p-4">
+                <Wallet className="mb-3 h-8 w-8 text-[#FFC700]" />
+                <Link href="#docs" className={`mb-1 text-lg font-bold text-white hover:text-[#FFC700] transition-colors ${ibmPlexSans.className}`}>Extensive Integration and Support</Link>
+                <p className={`text-[#8C92AC] text-sm ${spaceMono.className}`}>
+                We support communities across 35+ different Layer 1 and Layer 2 blockchains, utilizing both fungible tokens and NFTs. It also integrates with 25+ wallets, with dozens more available via WalletConnect, providing flexibility and broad compatibility.
                 </p>
               </Card>
-              <Card className="bg-[#F5F1E6]/5 p-6 backdrop-blur">
-                <Shield className="mb-4 h-12 w-12 text-[#FFC700]" />
-                <Link href="#safety" className="mb-2 font-['Space_Mono'] text-xl font-bold text-white hover:text-[#FFC700] transition-colors">Safety</Link>
-                <p className="text-[#8C92AC]">
-                  Safely serving tokenized communities since Spring 2020. Ensure your community's security by verifying our official bot.
+
+              <Card className="bg-[#F5F1E6]/5 p-4">
+                <Sparkles className="mb-3 h-8 w-8 text-[#FFC700]" />
+                <Link href="#pricing" className={`mb-1 text-lg font-bold text-white hover:text-[#FFC700] transition-colors ${ibmPlexSans.className}`}>Privacy and Security Commitment</Link>
+                <p className={`text-[#8C92AC] text-sm ${spaceMono.className}`}>
+                Collab.Land places your privacy first, ensuring wallet addresses and social login mappings are never shared with third parties without your explicit consent. Your identity stays secure, private, and entirely under your control.
+                </p>
+              </Card>
+
+              <Card className="bg-[#F5F1E6]/5 p-4">
+                <Shield className="mb-3 h-8 w-8 text-[#FFC700]" />
+                <Link href="#safety" className={`mb-1 text-lg font-bold text-white hover:text-[#FFC700] transition-colors ${ibmPlexSans.className}`}>Plans & Pricing</Link>
+                <p className={`text-[#8C92AC] text-sm ${spaceMono.className}`}>
+                Whether you're scaling up or just starting out, we've got you covered with flexible subscription plans, including customizable options that grow with your community and unlock premium features—plus a free starter tier for new communities.
                 </p>
               </Card>
             </div>
