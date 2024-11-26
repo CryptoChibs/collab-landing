@@ -50,7 +50,7 @@ export function LandingPage() {
                 alt="Collab.Land"
                 width={200}
                 height={40}
-                className="h-8 w-auto hover:brightness-110 transition-all hidden md:block"
+                className="h-6 w-auto hover:brightness-110 transition-all hidden md:block"
                 priority
               />
               {/* Mobile logo */}
@@ -59,7 +59,7 @@ export function LandingPage() {
                 alt="Collab.Land"
                 width={32}
                 height={32}
-                className="h-9 w-auto hover:brightness-110 transition-all md:hidden"
+                className="h-7 w-auto hover:brightness-110 transition-all md:hidden"
                 priority
               />
             </Link>
@@ -262,40 +262,42 @@ export function LandingPage() {
           </div>
         </section> 
 
-        <section className="px-4 py-16 sm:px-6 lg:px-8">
+        <section className="px-4 py-8 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <div className="grid gap-6 sm:grid-cols-2">
-              <Card className="bg-[#F5F1E6]/5 p-4">
-                <Users className="mb-3 h-8 w-8 text-[#FFC700]" />
-                <Link href="#community" className={`mb-1 text-lg font-bold text-white hover:text-[#FFC700] transition-colors ${ibmPlexSans.className}`}>
+              <Card className="bg-[#F5F1E6] p-4 hover:bg-[#FFC700] transition-colors duration-200 h-[140px] border border-[#1A1A40]">
+                <div className={`mb-1 text-base font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
                   Comprehensive Community Management
-                </Link>
-                <p className={`text-[#8C92AC] text-sm ${spaceMono.className}`}>
+                </div>
+                <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
                   Collab.Land offers a full-service tool that curates membership based on token ownership, ensuring that only verified token holders can access and participate in your community.
                 </p>
               </Card>
 
-              <Card className="bg-[#F5F1E6]/5 p-4">
-                <Wallet className="mb-3 h-8 w-8 text-[#FFC700]" />
-                <Link href="#docs" className={`mb-1 text-lg font-bold text-white hover:text-[#FFC700] transition-colors ${ibmPlexSans.className}`}>Extensive Integration and Support</Link>
-                <p className={`text-[#8C92AC] text-sm ${spaceMono.className}`}>
-                We support communities across 35+ different Layer 1 and Layer 2 blockchains, utilizing both fungible tokens and NFTs. It also integrates with 25+ wallets, with dozens more available via WalletConnect, providing flexibility and broad compatibility.
+              <Card className="bg-[#F5F1E6] p-4 hover:bg-[#FFC700] transition-colors duration-200 h-[140px] border border-[#1A1A40]">
+                <Link href="#docs" className={`mb-1 text-base font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
+                  Supported Chains and Wallets
+                </Link>
+                <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
+                  Access comprehensive guides and tutorials to set up, manage, and optimize your Collab.Land integration. Our documentation covers everything from basic setup to advanced features.
                 </p>
               </Card>
 
-              <Card className="bg-[#F5F1E6]/5 p-4">
-                <Sparkles className="mb-3 h-8 w-8 text-[#FFC700]" />
-                <Link href="#pricing" className={`mb-1 text-lg font-bold text-white hover:text-[#FFC700] transition-colors ${ibmPlexSans.className}`}>Privacy and Security Commitment</Link>
-                <p className={`text-[#8C92AC] text-sm ${spaceMono.className}`}>
-                Collab.Land places your privacy first, ensuring wallet addresses and social login mappings are never shared with third parties without your explicit consent. Your identity stays secure, private, and entirely under your control.
+              <Card className="bg-[#F5F1E6] p-4 hover:bg-[#FFC700] transition-colors duration-200 h-[140px] border border-[#1A1A40]">
+                <Link href="#pricing" className={`mb-1 text-base font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
+                  Pricing
+                </Link>
+                <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
+                  Choose from our flexible subscription plans to unlock premium features and enhance your community management experience.
                 </p>
               </Card>
 
-              <Card className="bg-[#F5F1E6]/5 p-4">
-                <Shield className="mb-3 h-8 w-8 text-[#FFC700]" />
-                <Link href="#safety" className={`mb-1 text-lg font-bold text-white hover:text-[#FFC700] transition-colors ${ibmPlexSans.className}`}>Plans & Pricing</Link>
-                <p className={`text-[#8C92AC] text-sm ${spaceMono.className}`}>
-                Whether you're scaling up or just starting out, we've got you covered with flexible subscription plans, including customizable options that grow with your community and unlock premium features—plus a free starter tier for new communities.
+              <Card className="bg-[#F5F1E6] p-4 hover:bg-[#FFC700] transition-colors duration-200 h-[140px] border border-[#1A1A40]">
+                <Link href="#safety" className={`mb-1 text-base font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
+                  Safety
+                </Link>
+                <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
+                  Safely serving tokenized communities since Spring 2020. Ensure your community's security by verifying our official bot.
                 </p>
               </Card>
             </div>
