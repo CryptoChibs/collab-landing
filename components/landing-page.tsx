@@ -391,53 +391,53 @@ export function LandingPage() {
         <section className="px-4 py-8 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <div className="grid gap-6 sm:grid-cols-2">
-              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[180px] flex flex-col">
-                <CardHeader className="pb-0 pt-4 px-4 text-center">
-                  <CardTitle className="text-lg font-bold text-[#1A1A40]">
+              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[220px] flex flex-col">
+                <CardHeader className="pb-2 pt-6 px-6 text-center">
+                  <CardTitle className={`text-lg md:text-xl font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
                     Comprehensive Community Management
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow overflow-auto p-3 text-center">
-                  <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
+                <CardContent className="flex-grow overflow-auto p-3 pt-1 text-center">
+                  <p className={`text-[#1A1A40] text-sm md:text-base ${spaceMono.className}`}>
                     Collab.Land offers a full-service tool that curates membership based on token ownership, ensuring that only verified token holders can access and participate in your community.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[180px] flex flex-col">
-                <CardHeader className="pb-0 pt-4 px-4 text-center">
-                  <CardTitle className="text-lg font-bold text-[#1A1A40]">
+              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[220px] flex flex-col">
+                <CardHeader className="pb-2 pt-6 px-6 text-center">
+                  <CardTitle className={`text-lg md:text-xl font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
                     Supported Chains and Wallets
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow overflow-auto p-3 text-center">
-                  <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
+                <CardContent className="flex-grow overflow-auto p-3 pt-1 text-center">
+                  <p className={`text-[#1A1A40] text-sm md:text-base ${spaceMono.className}`}>
                     Access comprehensive guides and tutorials to set up, manage, and optimize your Collab.Land integration. Our documentation covers everything from basic setup to advanced features.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[180px] flex flex-col">
-                <CardHeader className="pb-0 pt-4 px-4 text-center">
-                  <CardTitle className="text-lg font-bold text-[#1A1A40]">
+              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[220px] flex flex-col">
+                <CardHeader className="pb-2 pt-6 px-6 text-center">
+                  <CardTitle className={`text-lg md:text-xl font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
                     Pricing
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow overflow-auto p-3 text-center">
-                  <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
+                <CardContent className="flex-grow overflow-auto p-3 pt-1 text-center">
+                  <p className={`text-[#1A1A40] text-sm md:text-base ${spaceMono.className}`}>
                     Choose from our flexible subscription plans to unlock premium features and enhance your community management experience.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[180px] flex flex-col">
-                <CardHeader className="pb-0 pt-4 px-4 text-center">
-                  <CardTitle className="text-lg font-bold text-[#1A1A40]">
+              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[220px] flex flex-col">
+                <CardHeader className="pb-2 pt-6 px-6 text-center">
+                  <CardTitle className={`text-lg md:text-xl font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
                     Safety
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow overflow-auto p-3 text-center">
-                  <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
+                <CardContent className="flex-grow overflow-auto p-3 pt-1 text-center">
+                  <p className={`text-[#1A1A40] text-sm md:text-base ${spaceMono.className}`}>
                     Safely serving tokenized communities since Spring 2020. Ensure your community's security by verifying our official bot.
                   </p>
                 </CardContent>
