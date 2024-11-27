@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Sparkles, Wallet, Shield, ChevronDown, Send, Users } from 'lucide-react'
 import Link from "next/link"
@@ -41,16 +41,16 @@ export function LandingPage() {
       <header className="fixed w-full top-0 z-[100] shadow-lg after:absolute after:inset-0 after:shadow-[0_4px_12px_rgba(0,0,0,0.2)] after:pointer-events-none">
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FFC700] to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#FFC700]/5 to-transparent pointer-events-none" />
-        <nav className="bg-[#F5F1E6] px-2 py-2 flex flex-row items-center justify-between w-full relative min-h-[40px] z-50">
+        <nav className="bg-[#F5F1E6] px-2 py-3 flex flex-row items-center justify-between w-full relative min-h-[48px] z-50">
           <div className="flex items-center">
             <Link href="https://collab.land" className="transform transition-transform hover:scale-105">
               {/* Desktop logo */}
               <Image
                 src="/Logo-Color.png"
                 alt="Collab.Land"
-                width={200}
-                height={40}
-                className="h-6 w-auto hover:brightness-110 transition-all hidden md:block"
+                width={180}
+                height={36}
+                className="h-8 w-auto hover:brightness-110 transition-all hidden md:block"
                 priority
               />
               {/* Mobile logo */}
@@ -59,20 +59,19 @@ export function LandingPage() {
                 alt="Collab.Land"
                 width={32}
                 height={32}
-                className="h-7 w-auto hover:brightness-110 transition-all md:hidden"
+                className="h-8 w-auto hover:brightness-110 transition-all md:hidden"
                 priority
               />
             </Link>
           </div>
           
           <div className="flex items-center gap-2">
-            {/* About Popover */}
             <Popover>
               <PopoverTrigger asChild>
                 <Button 
                   variant="ghost" 
                   className={`
-                    text-[13px] h-8 px-3 py-1 
+                    text-base h-8 px-3 py-1 
                     text-[#1A1A40] hover:text-[#FFB800] 
                     transition-all duration-300 
                     ${spaceMono.className} 
@@ -118,7 +117,7 @@ export function LandingPage() {
                       className="
                         block px-4 py-2 
                         text-[#1A1A40] 
-                        text-[13px]
+                        text-base
                         font-bold
                         hover:bg-[#FFC700]/80 
                         hover:translate-x-1
@@ -134,16 +133,45 @@ export function LandingPage() {
                 </div>
               </PopoverContent>
             </Popover>
-
-            {/* Admins Popover */}
             <Popover>
               <PopoverTrigger asChild>
-                <Button variant="ghost" className={`text-[13px] h-8 px-3 py-1 text-[#1A1A40] hover:text-[#FFB800] transition-all duration-300 ${spaceMono.className} font-bold relative group hover:bg-[#FFC700]/10 data-[state=open]:bg-[#FFC700]/10`}>
+                <Button 
+                  variant="ghost" 
+                  className={`
+                    text-base h-8 px-3 py-1 
+                    text-[#1A1A40] hover:text-[#FFB800] 
+                    transition-all duration-300 
+                    ${spaceMono.className} 
+                    font-bold
+                    relative
+                    group
+                    hover:bg-[#FFC700]/10
+                    data-[state=open]:bg-[#FFC700]/10
+                  `}
+                >
                   <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#FFB800] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                   Admins <ChevronDown className="ml-2 h-4 w-4 transition-transform duration-300" />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className={`w-48 bg-[#FFC700] border-none rounded-lg shadow-lg ${spaceMono.className} backdrop-blur-sm relative z-[200] before:absolute before:inset-0 before:border-2 before:border-black/10 before:rounded-lg after:absolute after:inset-0 after:bg-gradient-to-b after:from-white/10 after:to-transparent after:rounded-lg after:pointer-events-none`} sideOffset={4} align="center" side="bottom">
+              <PopoverContent 
+                className={`
+                  w-48 bg-[#FFC700] 
+                  border-none rounded-lg shadow-lg 
+                  ${spaceMono.className}
+                  backdrop-blur-sm
+                  relative
+                  z-[200]
+                  before:absolute before:inset-0 
+                  before:border-2 before:border-black/10 
+                  before:rounded-lg
+                  after:absolute after:inset-0 
+                  after:bg-gradient-to-b after:from-white/10 after:to-transparent 
+                  after:rounded-lg after:pointer-events-none
+                `}
+                sideOffset={4}
+                align="center"
+                side="bottom"
+              >
                 <div className="grid gap-1 relative z-10">
                   {[
                     { href: "https://cc.collab.land", label: "Command Center" },
@@ -152,7 +180,21 @@ export function LandingPage() {
                     { href: "https://bit.ly/3M5lIAo", label: "Integrations" },
                     { href: "https://pricing.collab.land", label: "Premium" }
                   ].map((item) => (
-                    <Link key={item.href} href={item.href} className="block px-4 py-2 text-[#1A1A40] text-[13px] font-bold hover:bg-[#FFC700]/80 hover:translate-x-1 transition-all duration-200 relative group">
+                    <Link 
+                      key={item.href}
+                      href={item.href} 
+                      className="
+                        block px-4 py-2 
+                        text-[#1A1A40] 
+                        text-base
+                        font-bold
+                        hover:bg-[#FFC700]/80 
+                        hover:translate-x-1
+                        transition-all duration-200
+                        relative
+                        group
+                      "
+                    >
                       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#1A1A40] group-hover:h-1/2 transition-all duration-200" />
                       {item.label}
                     </Link>
@@ -160,16 +202,45 @@ export function LandingPage() {
                 </div>
               </PopoverContent>
             </Popover>
-
-            {/* Resources Popover */}
             <Popover>
               <PopoverTrigger asChild>
-                <Button variant="ghost" className={`text-[13px] h-8 px-3 py-1 text-[#1A1A40] hover:text-[#FFB800] transition-all duration-300 ${spaceMono.className} font-bold relative group hover:bg-[#FFC700]/10 data-[state=open]:bg-[#FFC700]/10`}>
+                <Button 
+                  variant="ghost" 
+                  className={`
+                    text-base h-8 px-3 py-1 
+                    text-[#1A1A40] hover:text-[#FFB800] 
+                    transition-all duration-300 
+                    ${spaceMono.className} 
+                    font-bold
+                    relative
+                    group
+                    hover:bg-[#FFC700]/10
+                    data-[state=open]:bg-[#FFC700]/10
+                  `}
+                >
                   <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#FFB800] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                   Resources <ChevronDown className="ml-2 h-4 w-4 transition-transform duration-300" />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className={`w-48 bg-[#FFC700] border-none rounded-lg shadow-lg ${spaceMono.className} backdrop-blur-sm relative z-[200] before:absolute before:inset-0 before:border-2 before:border-black/10 before:rounded-lg after:absolute after:inset-0 after:bg-gradient-to-b after:from-white/10 after:to-transparent after:rounded-lg after:pointer-events-none`} sideOffset={4} align="center" side="bottom">
+              <PopoverContent 
+                className={`
+                  w-48 bg-[#FFC700] 
+                  border-none rounded-lg shadow-lg 
+                  ${spaceMono.className}
+                  backdrop-blur-sm
+                  relative
+                  z-[200]
+                  before:absolute before:inset-0 
+                  before:border-2 before:border-black/10 
+                  before:rounded-lg
+                  after:absolute after:inset-0 
+                  after:bg-gradient-to-b after:from-white/10 after:to-transparent 
+                  after:rounded-lg after:pointer-events-none
+                `}
+                sideOffset={4}
+                align="center"
+                side="bottom"
+              >
                 <div className="grid gap-1 relative z-10">
                   {[
                     { href: "https://docs.collab.land", label: "Docs" },
@@ -180,7 +251,21 @@ export function LandingPage() {
                     { href: "https://medium.com/collab-land", label: "Updates" },
                     { href: "https://www.youtube.com/channel/UCmyt5i7JmBPd03r2eJ-EaMA", label: "YouTube" }
                   ].map((item) => (
-                    <Link key={item.href} href={item.href} className="block px-4 py-2 text-[#1A1A40] text-[13px] font-bold hover:bg-[#FFC700]/80 hover:translate-x-1 transition-all duration-200 relative group">
+                    <Link 
+                      key={item.href}
+                      href={item.href} 
+                      className="
+                        block px-4 py-2 
+                        text-[#1A1A40] 
+                        text-base
+                        font-bold
+                        hover:bg-[#FFC700]/80 
+                        hover:translate-x-1
+                        transition-all duration-200
+                        relative
+                        group
+                      "
+                    >
                       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#1A1A40] group-hover:h-1/2 transition-all duration-200" />
                       {item.label}
                     </Link>
@@ -188,16 +273,45 @@ export function LandingPage() {
                 </div>
               </PopoverContent>
             </Popover>
-
-            {/* Socials Popover */}
             <Popover>
               <PopoverTrigger asChild>
-                <Button variant="ghost" className={`text-[13px] h-8 px-3 py-1 text-[#1A1A40] hover:text-[#FFB800] transition-all duration-300 ${spaceMono.className} font-bold relative group hover:bg-[#FFC700]/10 data-[state=open]:bg-[#FFC700]/10`}>
+                <Button 
+                  variant="ghost" 
+                  className={`
+                    text-base h-8 px-3 py-1 
+                    text-[#1A1A40] hover:text-[#FFB800] 
+                    transition-all duration-300 
+                    ${spaceMono.className} 
+                    font-bold
+                    relative
+                    group
+                    hover:bg-[#FFC700]/10
+                    data-[state=open]:bg-[#FFC700]/10
+                  `}
+                >
                   <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#FFB800] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                   Socials <ChevronDown className="ml-2 h-4 w-4 transition-transform duration-300" />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className={`w-48 bg-[#FFC700] border-none rounded-lg shadow-lg ${spaceMono.className} backdrop-blur-sm relative z-[200] before:absolute before:inset-0 before:border-2 before:border-black/10 before:rounded-lg after:absolute after:inset-0 after:bg-gradient-to-b after:from-white/10 after:to-transparent after:rounded-lg after:pointer-events-none`} sideOffset={4} align="center" side="bottom">
+              <PopoverContent 
+                className={`
+                  w-48 bg-[#FFC700] 
+                  border-none rounded-lg shadow-lg 
+                  ${spaceMono.className}
+                  backdrop-blur-sm
+                  relative
+                  z-[200]
+                  before:absolute before:inset-0 
+                  before:border-2 before:border-black/10 
+                  before:rounded-lg
+                  after:absolute after:inset-0 
+                  after:bg-gradient-to-b after:from-white/10 after:to-transparent 
+                  after:rounded-lg after:pointer-events-none
+                `}
+                sideOffset={4}
+                align="center"
+                side="bottom"
+              >
                 <div className="grid gap-1 relative z-10">
                   {[
                     { href: "https://discord.gg/collabland", label: "Discord" },
@@ -205,7 +319,21 @@ export function LandingPage() {
                     { href: "https://linktr.ee/collab_land_", label: "Linktree" },
                     { href: "https://twitter.com/Collab_Land_", label: "X" }
                   ].map((item) => (
-                    <Link key={item.href} href={item.href} className="block px-4 py-2 text-[#1A1A40] text-[13px] font-bold hover:bg-[#FFC700]/80 hover:translate-x-1 transition-all duration-200 relative group">
+                    <Link 
+                      key={item.href}
+                      href={item.href} 
+                      className="
+                        block px-4 py-2 
+                        text-[#1A1A40] 
+                        text-base
+                        font-bold
+                        hover:bg-[#FFC700]/80 
+                        hover:translate-x-1
+                        transition-all duration-200
+                        relative
+                        group
+                      "
+                    >
                       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#1A1A40] group-hover:h-1/2 transition-all duration-200" />
                       {item.label}
                     </Link>
@@ -218,17 +346,14 @@ export function LandingPage() {
       </header>
 
       <main className="flex-grow pt-[44px]">
-        <section className="relative overflow-hidden px-4 py-8 sm:py-12 lg:py-16 sm:px-6 lg:px-8">
+        <section className="relative overflow-hidden px-4 py-16 sm:py-20 lg:py-24 sm:px-6 lg:px-8">
           <div className="relative z-10 mx-auto max-w-7xl">
             <div className="text-center">
-              <h1 className={`mb-2 text-base font-bold tracking-tight text-[#F5F1E6] sm:text-xl lg:text-2xl ${ibmPlexSans.className}`}>
-                Turning Tokens into Connections,
+              <h1 className="text-5xl sm:text-6xl font-bold text-[#FFC700] text-center mb-24">
+                Turning Tokens into Connections, 
                 <br />
                 One Community at a Time
               </h1>
-              <p className={`mb-8 text-xs sm:text-sm text-[#8C92AC] max-w-lg mx-auto ${spaceMono.className}`}>
-                Empower your community with token-gated access, automated roles, and seamless Web3 integration.
-              </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button
                   size="default"
@@ -236,12 +361,12 @@ export function LandingPage() {
                     bg-[#FFC700] text-[#1A1A40] 
                     hover:bg-[#5865F2] hover:text-white 
                     transition-colors duration-300 
-                    rounded-full text-sm font-bold 
-                    px-4 py-2 h-9
+                    rounded-full text-lg font-bold 
+                    px-8 py-4 h-14 
                     ${spaceMono.className}
                   `}
                 >
-                  <DiscordLogo className="mr-2 h-4 w-4" />
+                  <DiscordLogo className="mr-2 h-6 w-6" />
                   Add to Discord
                 </Button>
                 <Button
@@ -250,12 +375,12 @@ export function LandingPage() {
                     bg-[#FFC700] text-[#1A1A40] 
                     hover:bg-[#0088cc] hover:text-white 
                     transition-colors duration-300 
-                    rounded-full text-sm font-bold 
-                    px-4 py-2 h-9
+                    rounded-full text-lg font-bold
+                    px-8 py-4 h-14 
                     ${spaceMono.className}
                   `}
                 >
-                  <Send className="mr-2 h-4 w-4" />
+                  <Send className="mr-2 h-6 w-6" />
                   Add to Telegram
                 </Button>
               </div>
@@ -266,106 +391,122 @@ export function LandingPage() {
         <section className="px-4 py-8 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <div className="grid gap-6 sm:grid-cols-2">
-              <Card className="bg-[#F5F1E6] p-4 hover:bg-[#FFC700] transition-colors duration-200 h-[140px] border border-[#1A1A40]">
-                <div className={`mb-1 text-base font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
-                  Comprehensive Community Management
-                </div>
-                <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
-                  Collab.Land offers a full-service tool that curates membership based on token ownership, ensuring that only verified token holders can access and participate in your community.
-                </p>
+              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[180px] flex flex-col">
+                <CardHeader className="pb-0 pt-4 px-4 text-center">
+                  <CardTitle className="text-lg font-bold text-[#1A1A40]">
+                    Comprehensive Community Management
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow overflow-auto p-3 text-center">
+                  <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
+                    Collab.Land offers a full-service tool that curates membership based on token ownership, ensuring that only verified token holders can access and participate in your community.
+                  </p>
+                </CardContent>
               </Card>
 
-              <Card className="bg-[#F5F1E6] p-4 hover:bg-[#FFC700] transition-colors duration-200 h-[140px] border border-[#1A1A40]">
-                <Link href="#docs" className={`mb-1 text-base font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
-                  Supported Chains and Wallets
-                </Link>
-                <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
-                  Access comprehensive guides and tutorials to set up, manage, and optimize your Collab.Land integration. Our documentation covers everything from basic setup to advanced features.
-                </p>
+              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[180px] flex flex-col">
+                <CardHeader className="pb-0 pt-4 px-4 text-center">
+                  <CardTitle className="text-lg font-bold text-[#1A1A40]">
+                    Supported Chains and Wallets
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow overflow-auto p-3 text-center">
+                  <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
+                    Access comprehensive guides and tutorials to set up, manage, and optimize your Collab.Land integration. Our documentation covers everything from basic setup to advanced features.
+                  </p>
+                </CardContent>
               </Card>
 
-              <Card className="bg-[#F5F1E6] p-4 hover:bg-[#FFC700] transition-colors duration-200 h-[140px] border border-[#1A1A40]">
-                <Link href="#pricing" className={`mb-1 text-base font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
-                  Pricing
-                </Link>
-                <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
-                  Choose from our flexible subscription plans to unlock premium features and enhance your community management experience.
-                </p>
+              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[180px] flex flex-col">
+                <CardHeader className="pb-0 pt-4 px-4 text-center">
+                  <CardTitle className="text-lg font-bold text-[#1A1A40]">
+                    Pricing
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow overflow-auto p-3 text-center">
+                  <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
+                    Choose from our flexible subscription plans to unlock premium features and enhance your community management experience.
+                  </p>
+                </CardContent>
               </Card>
 
-              <Card className="bg-[#F5F1E6] p-4 hover:bg-[#FFC700] transition-colors duration-200 h-[140px] border border-[#1A1A40]">
-                <Link href="#safety" className={`mb-1 text-base font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
-                  Safety
-                </Link>
-                <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
-                  Safely serving tokenized communities since Spring 2020. Ensure your community's security by verifying our official bot.
-                </p>
+              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[180px] flex flex-col">
+                <CardHeader className="pb-0 pt-4 px-4 text-center">
+                  <CardTitle className="text-lg font-bold text-[#1A1A40]">
+                    Safety
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow overflow-auto p-3 text-center">
+                  <p className={`text-[#1A1A40] text-xs ${spaceMono.className}`}>
+                    Safely serving tokenized communities since Spring 2020. Ensure your community's security by verifying our official bot.
+                  </p>
+                </CardContent>
               </Card>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="bg-[#FFC700] py-1">
-        <div className="w-full px-2">
+      <footer className="bg-[#FFC700] py-2">
+        <div className="w-full px-4">
           <div className="flex flex-row justify-between items-center max-w-[1920px] mx-auto">
-            <nav className="flex space-x-2.5">
+            <nav className="flex space-x-4">
               <Link 
                 href="https://www.collab.land/privacy-policy" 
-                className={`text-[11px] font-bold text-[#1A1A40] hover:text-[#1A1A40]/80 ${spaceMono.className}`}
+                className={`text-sm font-bold text-[#1A1A40] hover:text-[#1A1A40]/80 ${spaceMono.className}`}
               >
                 Privacy Policy
               </Link>
               <Link 
                 href="https://www.collab.land/terms-of-service" 
-                className={`text-[11px] font-bold text-[#1A1A40] hover:text-[#1A1A40]/80 ${spaceMono.className}`}
+                className={`text-sm font-bold text-[#1A1A40] hover:text-[#1A1A40]/80 ${spaceMono.className}`}
               >
                 Terms
               </Link>
             </nav>
             
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-3">
               <Link href="https://linktr.ee/collab_land_" target="_blank">
-                <Button size="icon" variant="ghost" className="h-6 w-6 p-0.5 hover:bg-transparent group">
+                <Button size="icon" variant="ghost" className="h-8 w-8 p-1 hover:bg-transparent group">
                   <Image 
                     src="/LinktreeIcon.svg" 
                     alt="Linktree" 
-                    width={16} 
-                    height={16} 
+                    width={20} 
+                    height={20} 
                     className="transition-all duration-200 group-hover:scale-110 group-hover:brightness-75"
                   />
                 </Button>
               </Link>
               <Link href="https://discord.gg/collabland" target="_blank">
-                <Button size="icon" variant="ghost" className="h-6 w-6 p-0.5 hover:bg-transparent group">
+                <Button size="icon" variant="ghost" className="h-8 w-8 p-1 hover:bg-transparent group">
                   <Image 
                     src="/DiscordIcon.svg" 
                     alt="Discord" 
-                    width={16} 
-                    height={16}
+                    width={20} 
+                    height={20}
                     className="transition-all duration-200 group-hover:scale-110 group-hover:brightness-75" 
                   />
                 </Button>
               </Link>
               <Link href="https://x.com/collab_land_" target="_blank">
-                <Button size="icon" variant="ghost" className="h-6 w-6 p-0.5 hover:bg-transparent group">
+                <Button size="icon" variant="ghost" className="h-8 w-8 p-1 hover:bg-transparent group">
                   <Image 
                     src="/XIcon.svg" 
                     alt="X (formerly Twitter)" 
-                    width={16} 
-                    height={16}
+                    width={20} 
+                    height={20}
                     className="transition-all duration-200 group-hover:scale-110 group-hover:brightness-75"
                   />
                 </Button>
               </Link>
             </div>
 
-            <p className={`text-[11px] font-bold flex items-center gap-1 text-[#1A1A40] ${spaceMono.className}`}>
+            <p className={`text-sm font-bold flex items-center gap-1.5 text-[#1A1A40] ${spaceMono.className}`}>
               <Image 
                 src="/LogoIcon.svg" 
                 alt="Collab.Land Logo" 
-                width={14} 
-                height={14} 
+                width={18} 
+                height={18} 
                 className="inline-block"
               />
               Collab.Land® 2024
