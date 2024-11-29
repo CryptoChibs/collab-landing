@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
@@ -35,6 +35,8 @@ const DiscordLogo = ({ className }: { className?: string }) => (
 )
 
 export function LandingPage() {
+  const [openPopover, setOpenPopover] = useState<string | null>(null)
+
   return (
     <div className="min-h-screen bg-[#1A1A40] text-white flex flex-col">
       {/* Top Navigation Banner */}
@@ -366,7 +368,6 @@ export function LandingPage() {
                     ${spaceMono.className}
                   `}
                 >
-                  <DiscordLogo className="mr-2 h-6 w-6" />
                   Add to Discord
                 </Button>
                 <Button
@@ -380,7 +381,6 @@ export function LandingPage() {
                     ${spaceMono.className}
                   `}
                 >
-                  <Send className="mr-2 h-6 w-6" />
                   Add to Telegram
                 </Button>
               </div>
@@ -388,7 +388,41 @@ export function LandingPage() {
           </div>
         </section> 
 
-        <section className="px-4 py-8 sm:px-6 lg:px-8">
+        <section className="border-t-2 border-[#3A3A6E] h-2">
+          <div className="relative">
+            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3A3A6E] to-transparent" />
+          </div>
+        </section>
+
+        <section className="px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className={`text-lg md:text-xl lg:text-2xl font-bold text-[#FFC700] mb-6 ${ibmPlexSans.className}`}>
+              Collab.Land: The Ultimate Solution for Web3 Community Management
+            </h2>
+            <div className={`space-y-4 text-sm md:text-base text-white ${spaceMono.className}`}>
+              <p>
+                Collab.Land simplifies managing tokenized crypto communities by taking care of membership verification with precision. We ensure every new member holds the necessary token(s) to join and perform regular re-verifications to keep your community safe and accurate.
+              </p>
+              <p>
+                And unlock the full potential of your community with Pro Mini Apps, available exclusively through our Premier Subscription. Go beyond token gating to supercharge engagement and create dynamic, pro-social spaces that thrive.
+              </p>
+              <p>
+                For over four years, tens of thousands of communities have trusted Collab.Land to deliver secure, seamless access to exclusive content, chats, and tools that elevate the community experience.
+              </p>
+              <p>
+                Take control and manage your bot effortlessly in the Admin Portal: <Link href="https://cc.collab.land" className="text-[#FFC700] hover:underline">cc.collab.land</Link>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t-2 border-[#3A3A6E] h-2">
+          <div className="relative">
+            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3A3A6E] to-transparent" />
+          </div>
+        </section>
+
+        <section className="px-4 py-8 sm:px-6 lg:px-8 mb-32">
           <div className="mx-auto max-w-4xl">
             <div className="grid gap-6 sm:grid-cols-2">
               <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[220px] flex flex-col">
@@ -407,7 +441,9 @@ export function LandingPage() {
               <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[220px] flex flex-col">
                 <CardHeader className="pb-2 pt-6 px-6 text-center">
                   <CardTitle className={`text-lg md:text-xl font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
-                    Supported Chains and Wallets
+                    <Link href="#" className="hover">
+                      Supported Chains and Wallets
+                    </Link>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow overflow-auto p-3 pt-1 text-center">
@@ -420,7 +456,9 @@ export function LandingPage() {
               <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[220px] flex flex-col">
                 <CardHeader className="pb-2 pt-6 px-6 text-center">
                   <CardTitle className={`text-lg md:text-xl font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
-                    Pricing
+                    <Link href="https://pricing.collab.land" className="hover">
+                      Pricing
+                    </Link>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow overflow-auto p-3 pt-1 text-center">
@@ -433,7 +471,9 @@ export function LandingPage() {
               <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[220px] flex flex-col">
                 <CardHeader className="pb-2 pt-6 px-6 text-center">
                   <CardTitle className={`text-lg md:text-xl font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
-                    Safety
+                    <Link href="#" className="hover">
+                      Safety
+                    </Link>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow overflow-auto p-3 pt-1 text-center">
