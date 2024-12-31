@@ -348,47 +348,65 @@ export function LandingPage() {
       </header>
 
       <main className="flex-grow pt-[44px]">
-        <section className="relative overflow-hidden px-4 py-16 sm:py-20 lg:py-24 sm:px-6 lg:px-8">
-          <div className="relative z-10 mx-auto max-w-7xl">
-            <div className="text-center">
-              <h1 className="text-5xl sm:text-6xl font-bold text-[#FFC700] text-center mb-24">
-                Turning Tokens into Connections, 
-                <br />
-                One Community at a Time
-              </h1>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Button
-                  size="default"
-                  className={`
-                    bg-[#FFC700] text-[#1A1A40] 
-                    hover:bg-[#5865F2] hover:text-white 
-                    transition-colors duration-300 
-                    rounded-full text-lg font-bold 
-                    px-8 py-4 h-14 
-                    ${spaceMono.className}
-                  `}
-                >
-                  Add to Discord
-                </Button>
-                <Button
-                  size="default"
-                  className={`
-                    bg-[#FFC700] text-[#1A1A40] 
-                    hover:bg-[#0088cc] hover:text-white 
-                    transition-colors duration-300 
-                    rounded-full text-lg font-bold
-                    px-8 py-4 h-14 
-                    ${spaceMono.className}
-                  `}
-                >
-                  Add to Telegram
-                </Button>
+        <section className="relative min-h-[800px] overflow-hidden">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: 'url("/LANDING_PAGE.webp")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          />
+          
+          {/* Content Overlay */}
+          <div className="relative z-10 h-full">
+            <div className="absolute right-8 sm:right-12 lg:right-16 top-52">
+              <div className="max-w-2xl">
+                <h1 className="text-5xl sm:text-6xl font-bold text-[#F5F1E6] mb-8">
+                  Turning Tokens 
+                  <br />
+                  into Connections, 
+                  <br />
+                  One Community 
+                  <br />
+                  at a Time
+                </h1>
+
+                <div className="flex flex-wrap gap-4">
+                  <Button
+                    size="default"
+                    className={`
+                      bg-[#FFC700] text-[#1A1A40] 
+                      hover:bg-[#5865F2] hover:text-white 
+                      transition-colors duration-300 
+                      rounded-full text-lg font-bold 
+                      px-8 py-4 h-14 
+                      ${spaceMono.className}
+                    `}
+                  >
+                    Add to Discord
+                  </Button>
+                  <Button
+                    size="default"
+                    className={`
+                      bg-[#FFC700] text-[#1A1A40] 
+                      hover:bg-[#0088cc] hover:text-white 
+                      transition-colors duration-300 
+                      rounded-full text-lg font-bold
+                      px-8 py-4 h-14 
+                      ${spaceMono.className}
+                    `}
+                  >
+                    Add to Telegram
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
         </section> 
 
-        <section className="border-t-2 border-[#3A3A6E] h-2">
+        <section className="border-t-2 border-[#3A3A6E] h-2 mb-18">
           <div className="relative">
             <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3A3A6E] to-transparent" />
           </div>
@@ -416,7 +434,7 @@ export function LandingPage() {
           </div>
         </section>
 
-        <section className="border-t-2 border-[#3A3A6E] h-2">
+        <section className="border-t-2 border-[#3A3A6E] h-2 mb-20">
           <div className="relative">
             <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3A3A6E] to-transparent" />
           </div>
