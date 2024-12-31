@@ -459,7 +459,7 @@ export function LandingPage() {
               <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[220px] flex flex-col">
                 <CardHeader className="pb-2 pt-6 px-6 text-center">
                   <CardTitle className={`text-lg md:text-xl font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
-                    <Link href="#" className="hover">
+                    <Link href="https://pricing.collab.land" className="hover">
                       Supported Chains and Wallets
                     </Link>
                   </CardTitle>
@@ -489,7 +489,7 @@ export function LandingPage() {
               <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[220px] flex flex-col">
                 <CardHeader className="pb-2 pt-6 px-6 text-center">
                   <CardTitle className={`text-lg md:text-xl font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
-                    <Link href="#" className="hover">
+                    <Link href="https://collab.land/safety" className="hover">
                       Safety
                     </Link>
                   </CardTitle>
