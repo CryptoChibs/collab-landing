@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { Sparkles, Wallet, Shield, ChevronDown, Send, Users } from 'lucide-react'
+import { Sparkles, Wallet, Shield, ChevronDown, Send, Users, Menu, ChevronRight } from 'lucide-react'
 import Link from "next/link"
 import Image from "next/image"
 import { Space_Mono, IBM_Plex_Sans } from 'next/font/google'
@@ -35,6 +35,16 @@ const DiscordLogo = ({ className }: { className?: string }) => (
 
 export function LandingPage() {
   const [openPopover, setOpenPopover] = useState<string | null>(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [expandedSections, setExpandedSections] = useState<string[]>([]);
+
+  const toggleSection = (title: string) => {
+    setExpandedSections(prev => 
+      prev.includes(title) 
+        ? prev.filter(t => t !== title)
+        : [...prev, title]
+    );
+  };
 
   return (
     <div className="min-h-screen bg-[#1A1A40] text-white flex flex-col">
@@ -42,7 +52,7 @@ export function LandingPage() {
       <header className="fixed w-full top-0 z-[100] shadow-lg after:absolute after:inset-0 after:shadow-[0_4px_12px_rgba(0,0,0,0.2)] after:pointer-events-none">
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FFC700] to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#FFC700]/5 to-transparent pointer-events-none" />
-        <nav className="bg-[#F5F1E6] px-2 py-3 flex flex-row items-center justify-between w-full relative min-h-[48px] z-50">
+        <nav className="bg-[#F5F1E6] px-4 py-3 flex flex-row items-center justify-between w-full relative min-h-[48px] z-50">
           <div className="flex items-center">
             <Link href="https://collab.land" className="transform transition-transform hover:scale-105">
               {/* Desktop logo */}
@@ -66,7 +76,8 @@ export function LandingPage() {
             </Link>
           </div>
           
-          <div className="flex items-center gap-2">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-2">
             <Popover>
               <PopoverTrigger asChild>
                 <Button 
@@ -343,14 +354,97 @@ export function LandingPage() {
               </PopoverContent>
             </Popover>
           </div>
+
+          {/* Mobile Menu Button */}
+          <Button 
+            variant="ghost"
+            className="md:hidden text-[#1A1A40] hover:bg-[#FFC700]/10"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <Menu className="h-6 w-6" />
+          </Button>
         </nav>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-[#F5F1E6] border-t border-[#FFC700]/20 shadow-lg">
+            <div className="p-4 space-y-2">
+              {[
+                { title: 'About', items: [
+                  { href: "https://collab.land/overview", label: "Overview" },
+                  { href: "https://collab.land/team", label: "Team" },
+                  { href: "https://docs.collab.land/dao/token/token_overview", label: "$COLLAB" }
+                ]},
+                { title: 'Admins', items: [
+                  { href: "https://cc.collab.land", label: "Command Center" },
+                  { href: "https://docs.collab.land", label: "Docs" },
+                  { href: "https://invite.collab.land", label: "Invite" },
+                  { href: "https://bit.ly/3M5lIAo", label: "Integrations" },
+                  { href: "https://pricing.collab.land", label: "Premium" }
+                ]},
+                { title: 'Resources', items: [
+                  { href: "https://docs.collab.land", label: "Docs" },
+                  { href: "https://bit.ly/3M5lIAo", label: "Integrations" },
+                  { href: "https://collabland.substack.com/", label: "Newsletter" },
+                  { href: "https://collab.land/security", label: "Security" },
+                  { href: "https://collabland.freshdesk.com/support/tickets/new", label: "Support" },
+                  { href: "https://medium.com/collab-land", label: "Updates" },
+                  { href: "https://www.youtube.com/channel/UCmyt5i7JmBPd03r2eJ-EaMA", label: "YouTube" }
+                ]},
+                { title: 'Socials', items: [
+                  { href: "https://discord.gg/collabland", label: "Discord" },
+                  { href: "https://www.instagram.com/collab_land_", label: "Instagram" },
+                  { href: "https://linktr.ee/collab_land_", label: "Linktree" },
+                  { href: "https://twitter.com/Collab_Land_", label: "X" }
+                ]}
+              ].map((section) => (
+                <div key={section.title} className="border-b border-[#FFC700]/20 last:border-none">
+                  <button
+                    onClick={() => toggleSection(section.title)}
+                    className={`
+                      w-full flex items-center justify-between
+                      py-2 px-1 text-[#1A1A40]
+                      ${spaceMono.className} font-bold
+                    `}
+                  >
+                    {section.title}
+                    <ChevronRight 
+                      className={`
+                        h-4 w-4 transition-transform duration-200
+                        ${expandedSections.includes(section.title) ? 'rotate-90' : ''}
+                      `}
+                    />
+                  </button>
+                  
+                  {expandedSections.includes(section.title) && (
+                    <div className="pl-4 pb-2 space-y-2">
+                      {section.items.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={`
+                            block py-1.5 px-2 text-[#1A1A40]
+                            hover:bg-[#FFC700]/20 rounded-md
+                            ${spaceMono.className}
+                          `}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </header>
 
       <main className="flex-grow">
-        <section className="relative h-[calc(100vh+200px)] -mt-48">
+        <section className="relative h-[calc(100vh-200px)] sm:h-[calc(100vh-400px)] lg:h-[calc(100vh+200px)] -mt-24 lg:-mt-48">
           {/* Background Image */}
           <div 
-            className="absolute inset-0 z-0"
+            className="absolute inset-0 z-0 hidden lg:block"
             style={{
               backgroundImage: 'url("/MoonBGPNG.png")',
               backgroundSize: '80%',
@@ -359,22 +453,11 @@ export function LandingPage() {
             }}
           />
           
-          {/* ACEs Overlay */}
-          <div 
-            className="absolute inset-0 z-[1]"
-            style={{
-              backgroundImage: 'url("/ACEs.svg")',
-              backgroundSize: '100% auto',
-              backgroundPosition: 'bottom center',
-              backgroundRepeat: 'no-repeat'
-            }}
-          />
-          
           {/* Content Overlay */}
           <div className="relative z-10 h-full">
-            <div className="absolute left-20 sm:left-24 lg:left-28 top-[26rem]">
-              <div className="max-w-xl">
-                <h1 className="text-4xl sm:text-5xl font-bold text-[#F5F1E6] mb-12 text-center">
+            <div className="absolute w-full lg:w-auto lg:left-28 top-64 sm:top-72 lg:top-[26rem] px-4">
+              <div className="max-w-xl mx-auto lg:mx-0">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F1E6] mb-8 sm:mb-12 text-center lg:text-left">
                   Turning Tokens 
                   <br />
                   into Connections, 
@@ -384,7 +467,7 @@ export function LandingPage() {
                   at a Time
                 </h1>
 
-                <div className="flex flex-wrap gap-3 justify-center">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                   <Button
                     size="default"
                     className={`
@@ -415,7 +498,18 @@ export function LandingPage() {
               </div>
             </div>
           </div>
-        </section> 
+          
+          {/* ACEs Overlay */}
+          <div 
+            className="absolute inset-0 z-[1] hidden lg:block"
+            style={{
+              backgroundImage: 'url("/ACEs.svg")',
+              backgroundSize: '100% auto',
+              backgroundPosition: 'bottom center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          />
+        </section>
 
         <section className="border-t-2 border-[#3A3A6E] h-2 mb-18">
           <div className="relative">
@@ -447,9 +541,9 @@ export function LandingPage() {
 
         <section className="px-4 py-8 sm:px-6 lg:px-8 mb-32">
           <div className="mx-auto max-w-4xl">
-            <div className="grid gap-6 sm:grid-cols-2">
-              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[220px] flex flex-col">
-                <CardHeader className="pb-2 pt-6 px-6 text-center">
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2">
+              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-auto sm:h-[220px] flex flex-col">
+                <CardHeader className="pb-2 pt-4 sm:pt-6 px-4 sm:px-6 text-center">
                   <CardTitle className={`text-lg md:text-xl font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
                     Comprehensive Community Management
                   </CardTitle>
@@ -461,8 +555,8 @@ export function LandingPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[220px] flex flex-col">
-                <CardHeader className="pb-2 pt-6 px-6 text-center">
+              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-auto sm:h-[220px] flex flex-col">
+                <CardHeader className="pb-2 pt-4 sm:pt-6 px-4 sm:px-6 text-center">
                   <CardTitle className={`text-lg md:text-xl font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
                     <Link href="https://pricing.collab.land" className="hover">
                       Supported Chains and Wallets
@@ -476,8 +570,8 @@ export function LandingPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[220px] flex flex-col">
-                <CardHeader className="pb-2 pt-6 px-6 text-center">
+              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-auto sm:h-[220px] flex flex-col">
+                <CardHeader className="pb-2 pt-4 sm:pt-6 px-4 sm:px-6 text-center">
                   <CardTitle className={`text-lg md:text-xl font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
                     <Link href="https://pricing.collab.land" className="hover">
                       Pricing
@@ -491,8 +585,8 @@ export function LandingPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-[220px] flex flex-col">
-                <CardHeader className="pb-2 pt-6 px-6 text-center">
+              <Card className="bg-[#F5F1E6] border hover:bg-[#FFC700] transition-all duration-300 h-auto sm:h-[220px] flex flex-col">
+                <CardHeader className="pb-2 pt-4 sm:pt-6 px-4 sm:px-6 text-center">
                   <CardTitle className={`text-lg md:text-xl font-bold text-[#1A1A40] ${ibmPlexSans.className}`}>
                     <Link href="https://collab.land/safety" className="hover">
                       Safety
@@ -510,25 +604,11 @@ export function LandingPage() {
         </section>
       </main>
 
-      <footer className="bg-[#FFC700] py-2">
+      <footer className="bg-[#FFC700] py-4 md:py-2">
         <div className="w-full px-4">
-          <div className="flex flex-row justify-between items-center max-w-[1920px] mx-auto">
-            <nav className="flex space-x-4">
-              <Link 
-                href="https://www.collab.land/privacy-policy" 
-                className={`text-sm font-bold text-[#1A1A40] hover:text-[#1A1A40]/80 ${spaceMono.className}`}
-              >
-                Privacy Policy
-              </Link>
-              <Link 
-                href="https://www.collab.land/terms-of-service" 
-                className={`text-sm font-bold text-[#1A1A40] hover:text-[#1A1A40]/80 ${spaceMono.className}`}
-              >
-                Terms
-              </Link>
-            </nav>
-            
-            <div className="flex items-center space-x-3">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 max-w-[1920px] mx-auto">
+            {/* Social Icons - First on mobile */}
+            <div className="flex items-center space-x-4 order-1 md:order-2">
               <Link href="https://linktr.ee/collab_land_" target="_blank">
                 <Button size="icon" variant="ghost" className="h-8 w-8 p-1 hover:bg-transparent group">
                   <Image 
@@ -564,7 +644,24 @@ export function LandingPage() {
               </Link>
             </div>
 
-            <p className={`text-sm font-bold flex items-center gap-1.5 text-[#1A1A40] ${spaceMono.className}`}>
+            {/* Links - Second on mobile */}
+            <nav className="flex flex-row items-center space-x-4 order-2 md:order-1">
+              <Link 
+                href="https://www.collab.land/privacy-policy" 
+                className={`text-sm font-bold text-[#1A1A40] hover:text-[#1A1A40]/80 ${spaceMono.className}`}
+              >
+                Privacy Policy
+              </Link>
+              <Link 
+                href="https://www.collab.land/terms-of-service" 
+                className={`text-sm font-bold text-[#1A1A40] hover:text-[#1A1A40]/80 ${spaceMono.className}`}
+              >
+                Terms
+              </Link>
+            </nav>
+
+            {/* Copyright - Last on mobile */}
+            <p className={`text-sm font-bold flex items-center gap-1.5 text-[#1A1A40] order-3 ${spaceMono.className}`}>
               <Image 
                 src="/LogoIcon.svg" 
                 alt="Collab.Land Logo" 
