@@ -1,5 +1,4 @@
-'use client'
-
+"use client"
 import React, { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
@@ -347,23 +346,35 @@ export function LandingPage() {
         </nav>
       </header>
 
-      <main className="flex-grow pt-[44px]">
-        <section className="relative min-h-[800px] overflow-hidden">
+      <main className="flex-grow">
+        <section className="relative h-[calc(100vh+200px)] -mt-48">
           {/* Background Image */}
           <div 
             className="absolute inset-0 z-0"
             style={{
-              backgroundImage: 'url("/LANDING_PAGE.webp")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundImage: 'url("/MoonBGPNG.png")',
+              backgroundSize: '80%',
+              backgroundPosition: 'bottom center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          />
+          
+          {/* ACEs Overlay */}
+          <div 
+            className="absolute inset-0 z-[1]"
+            style={{
+              backgroundImage: 'url("/ACEs.svg")',
+              backgroundSize: '100% auto',
+              backgroundPosition: 'bottom center',
+              backgroundRepeat: 'no-repeat'
             }}
           />
           
           {/* Content Overlay */}
           <div className="relative z-10 h-full">
-            <div className="absolute right-8 sm:right-12 lg:right-16 top-52">
-              <div className="max-w-2xl">
-                <h1 className="text-5xl sm:text-6xl font-bold text-[#F5F1E6] mb-8">
+            <div className="absolute left-20 sm:left-24 lg:left-28 top-[26rem]">
+              <div className="max-w-xl">
+                <h1 className="text-4xl sm:text-5xl font-bold text-[#F5F1E6] mb-12 text-center">
                   Turning Tokens 
                   <br />
                   into Connections, 
@@ -373,15 +384,15 @@ export function LandingPage() {
                   at a Time
                 </h1>
 
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-3 justify-center">
                   <Button
                     size="default"
                     className={`
                       bg-[#FFC700] text-[#1A1A40] 
                       hover:bg-[#5865F2] hover:text-white 
                       transition-colors duration-300 
-                      rounded-full text-lg font-bold 
-                      px-8 py-4 h-14 
+                      rounded-full text-base font-bold 
+                      px-6 py-3 h-12 
                       ${spaceMono.className}
                     `}
                   >
@@ -393,8 +404,8 @@ export function LandingPage() {
                       bg-[#FFC700] text-[#1A1A40] 
                       hover:bg-[#0088cc] hover:text-white 
                       transition-colors duration-300 
-                      rounded-full text-lg font-bold
-                      px-8 py-4 h-14 
+                      rounded-full text-base font-bold
+                      px-6 py-3 h-12 
                       ${spaceMono.className}
                     `}
                   >
@@ -431,12 +442,6 @@ export function LandingPage() {
                 Take control and manage your bot effortlessly in the Admin Portal: <Link href="https://cc.collab.land" className="text-[#FFC700] hover:underline">cc.collab.land</Link>
               </p>
             </div>
-          </div>
-        </section>
-
-        <section className="border-t-2 border-[#3A3A6E] h-2 mb-20">
-          <div className="relative">
-            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3A3A6E] to-transparent" />
           </div>
         </section>
 
