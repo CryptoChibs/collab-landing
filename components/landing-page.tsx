@@ -441,7 +441,7 @@ export function LandingPage() {
       </header>
 
       <main className="flex-grow">
-        <section className="relative h-[calc(100vh-200px)] sm:h-[calc(100vh-400px)] lg:h-[calc(100vh+200px)] -mt-24 lg:-mt-48">
+        <section className="relative min-h-[500px] sm:min-h-[600px] lg:h-[calc(100vh+200px)] -mt-24 lg:-mt-48">
           {/* Background Image */}
           <div 
             className="absolute inset-0 z-0 hidden lg:block"
@@ -455,9 +455,9 @@ export function LandingPage() {
           
           {/* Content Overlay */}
           <div className="relative z-10 h-full">
-            <div className="absolute w-full lg:w-auto lg:left-28 top-64 sm:top-72 lg:top-[26rem] px-4">
+            <div className="absolute w-full lg:w-auto lg:left-28 top-48 sm:top-56 lg:top-[26rem] px-4">
               <div className="max-w-xl mx-auto lg:mx-0">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F1E6] mb-8 sm:mb-12 text-center lg:text-left">
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#F5F1E6] mb-6 sm:mb-12 text-center lg:text-left">
                   Turning Tokens 
                   <br />
                   into Connections, 
