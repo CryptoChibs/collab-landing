@@ -442,22 +442,118 @@ export function LandingPage() {
 
       <main className="flex-grow">
         <section className="relative min-h-[500px] sm:min-h-[600px] lg:h-[calc(100vh+200px)] -mt-24 lg:-mt-48">
-          {/* Background Image */}
-          <div 
-            className="absolute inset-0 z-0 hidden lg:block"
-            style={{
-              backgroundImage: 'url("/MoonBGPNG.png")',
-              backgroundSize: '80%',
-              backgroundPosition: 'bottom center',
-              backgroundRepeat: 'no-repeat'
-            }}
-          />
+          {/* Background Elements */}
+          <div className="absolute inset-0 z-0 hidden lg:block overflow-hidden">
+            {/* Moon in top right */}
+            <div 
+              className="absolute right-[12%] top-80"
+              style={{
+                width: '300px',
+                height: '300px',
+                backgroundImage: 'url("/Moon.png")',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat'
+              }}
+            />
+            
+            {/* Big Stars */}
+            {/* BigStar #1 */}
+            <div 
+              className="absolute left-20 top-80"
+              style={{
+                width: '60px',
+                height: '60px',
+                backgroundImage: 'url("/BigStar.png")',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat'
+              }}
+            />
+            {/* BigStar #2 */}
+            <div 
+              className="absolute left-1/2 -translate-x-1/2 top-[28rem]"
+              style={{
+                width: '40px',
+                height: '40px',
+                backgroundImage: 'url("/BigStar.png")',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat'
+              }}
+            />
+            
+            {/* Small Stars */}
+            {/* Star #1 - Near top left of title */}
+            <div 
+              className="absolute left-[25%] top-[22rem]"
+              style={{
+                width: '100px',
+                height: '100px',
+                backgroundImage: 'url("/Star.png")',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat'
+              }}
+            />
+            {/* Star #2 - Near moon left */}
+            <div 
+              className="absolute right-[35%] top-72"
+              style={{
+                width: '80px',
+                height: '80px',
+                backgroundImage: 'url("/Star.png")',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat'
+              }}
+            />
+            {/* Star #3 - Far right of moon (previously #4) */}
+            <div 
+              className="absolute right-[2%] top-[30rem]"
+              style={{
+                width: '85px',
+                height: '85px',
+                backgroundImage: 'url("/Star.png")',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat'
+              }}
+            />
+            {/* Star #4 - Far below Discord button */}
+            <div 
+              className="absolute left-[8%] top-[64rem]"
+              style={{
+                width: '75px',
+                height: '75px',
+                backgroundImage: 'url("/Star.png")',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat'
+              }}
+            />
+            {/* Star #5 - Near star #4 but higher */}
+            <div 
+              className="absolute left-[35%] top-[56rem]"
+              style={{
+                width: '85px',
+                height: '85px',
+                backgroundImage: 'url("/Star.png")',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat'
+              }}
+            />
+            {/* Star #6 - Far below moon */}
+            <div 
+              className="absolute right-[20%] top-[40rem]"
+              style={{
+                width: '90px',
+                height: '90px',
+                backgroundImage: 'url("/Star.png")',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat'
+              }}
+            />
+          </div>
           
           {/* Content Overlay */}
           <div className="relative z-10 h-full">
-            <div className="absolute w-full lg:w-auto lg:left-28 top-48 sm:top-56 lg:top-[26rem] px-4">
+            <div className="absolute w-full lg:w-auto lg:left-28 top-64 sm:top-72 lg:top-[34rem] px-4">
               <div className="max-w-xl mx-auto lg:mx-0">
-                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#F5F1E6] mb-6 sm:mb-12 text-center lg:text-left">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#F5F1E6] mb-6 sm:mb-12 text-center">
                   Turning Tokens 
                   <br />
                   into Connections, 
@@ -467,16 +563,16 @@ export function LandingPage() {
                   at a Time
                 </h1>
 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Button
                     size="default"
                     className={`
                       bg-[#FFC700] text-[#1A1A40] 
                       hover:bg-[#5865F2] hover:text-white 
                       transition-colors duration-300 
-                      rounded-full text-base font-bold 
-                      px-6 py-3 h-12 
-                      ${spaceMono.className}
+                      rounded-full text-lg
+                      px-8 py-4 h-14 
+                      ${ibmPlexSans.className}
                     `}
                   >
                     Add to Discord
@@ -487,9 +583,9 @@ export function LandingPage() {
                       bg-[#FFC700] text-[#1A1A40] 
                       hover:bg-[#0088cc] hover:text-white 
                       transition-colors duration-300 
-                      rounded-full text-base font-bold
-                      px-6 py-3 h-12 
-                      ${spaceMono.className}
+                      rounded-full text-lg
+                      px-8 py-4 h-14 
+                      ${ibmPlexSans.className}
                     `}
                   >
                     Add to Telegram
